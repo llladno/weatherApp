@@ -1,7 +1,6 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import axios from "axios";
 import DayCard from "@/app/components/DayCard";
+import CurrentWeather from "@/app/components/CurrentWeather";
 
 // async function getWeather() {
 //     let res =
@@ -9,7 +8,7 @@ import DayCard from "@/app/components/DayCard";
 //     return res.data
 // }
 
-async function getWeather3(){
+async function getWeather3() {
     let res =
         await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=1475df8ad82c4bc2bd7165248243101&q=${await getLocation()}&days=3&aqi=no&alerts=no`)
     return res.data
@@ -23,15 +22,37 @@ async function getLocation() {
 export default async function Home() {
     // const current = await getWeather()
     const days3 = await getWeather3()
+
+    let temps = days3.forecast.forecastday[0].hour.map((x:any)=>{
+        return x.temp_c
+    })
+
+    let times = days3.forecast.forecastday[0].hour.map((t:any)=>{
+        return t.time.slice(-5)
+    })
+
+    console.log(temps.length)
+    console.log(days3.current.last_updated.slice(11,13))
+let now = +days3.current.last_updated.slice(11,13)
+    const chartData:any = {
+        labels: [times[now-2],times[now-1], times[now],times[now+1],times[now+2]],
+        datasets: [
+            {
+                label: 'Sales',
+                data: [temps[now-2],temps[now-1], temps[now],temps[now+1],temps[now+2]],
+            },
+        ],
+    };
     return (
         <main>
-            <h1>{days3.location.name}</h1>
-            <h3>{days3.current.temp_c} °C</h3>
-            <h4>{days3.current.last_updated.slice(-5)}</h4>
+            <CurrentWeather data={days3}></CurrentWeather>
             <div className='cards'>
                 <DayCard data={days3.forecast.forecastday[0]}></DayCard>
                 <DayCard data={days3.forecast.forecastday[1]}></DayCard>
                 <DayCard data={days3.forecast.forecastday[2]}></DayCard>
+            </div>
+            <div className='news'>
+
             </div>
         </main>
     );

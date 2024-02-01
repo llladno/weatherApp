@@ -3,6 +3,54 @@
   padding: 0;
 }
 
+body {
+  background: #5ea6ef;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+main {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: 33% 33% 33%;
+  justify-items: center;
+  height: 100vh;
+  align-items: center;
+}
+main .current {
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 5% 15% 10% 35% 35%;
+  align-items: center;
+  justify-items: center;
+  padding: 10px;
+  width: 400px;
+  height: 600px;
+  border-radius: 20px;
+  border: 3px solid #ffffff;
+  background: linear-gradient(45deg, rgb(0, 159, 255) 0%, rgb(119, 219, 254) 100%);
+}
+main .current h1, main .current h2, main .current h3, main .current h4, main .current h5, main .current h6 {
+  color: white;
+}
+main .current .greyText {
+  color: #c9c9c9;
+}
+main .weatherInfo {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  row-gap: 20px;
+  justify-items: center;
+  width: 100%;
+  color: white;
+}
+main .lineChart {
+  width: 100%;
+}
+
 .cards {
   display: flex;
 }

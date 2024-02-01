@@ -7,11 +7,15 @@ const DayCard = ({data}:any) => {
     let day = getDay(date.getDay())
     let month = getMonth(date.getMonth())
     let dateDay = date.getDate()
+    console.log(data)
     return (
         <div className='card'>
             <h2>{day}</h2>
             <h6>{dateDay} {month}</h6>
-            <h3>{weatherDay.maxtemp_c > 0 ? `+ ` + weatherDay.maxtemp_c : weatherDay.maxtemp_c}</h3>
+            <div>
+                <img src={data.day.condition.icon}/>
+                <h3>{weatherDay.maxtemp_c > 0 ? `+ ` + weatherDay.maxtemp_c : weatherDay.maxtemp_c}</h3>
+            </div>
             <h5>{weatherDay.mintemp_c > 0 ? `+ ` + weatherDay.mintemp_c : weatherDay.mintemp_c}</h5>
         </div>
     );
