@@ -7,7 +7,7 @@ const DayCard = ({data}:any) => {
     let day = getDay(date.getDay())
     let month = getMonth(date.getMonth())
     let dateDay = date.getDate()
-    console.log(data)
+
     return (
         <div className='card'>
             <h2>{day}</h2>

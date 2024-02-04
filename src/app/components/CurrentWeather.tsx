@@ -22,15 +22,14 @@ const CurrentWeather = ({data}: any) => {
         return t.time.slice(-5)
     })
 
-    console.log(temps.length)
-    console.log(data.current.last_updated.slice(11,13))
+
     let now = +data.current.last_updated.slice(11,13)
     const chartData:any = {
         labels: [times[now-2],times[now-1], times[now],times[now+1],times[now+2]],
         datasets: [
             {
                 label: 'Temp',
-                data: [temps[now-2],temps[now-1], temps[now],temps[now+1],temps[now+2]],
+                data: [temps[now-2],temps[now-1],temps[now],temps[now+1],temps[now+2]],
                 tension: 0.4,
                 borderColor: '#ffffff',
                 color: '#ffffff'

@@ -31,8 +31,7 @@ main {
     padding: 10px;
     width: 400px;
     height: 600px;
-    border-radius: 20px;
-    border: 3px solid #ffffff;
+    @include default-border-white();
 
 
 
@@ -43,9 +42,18 @@ main {
     background: linear-gradient(45deg, rgb(0, 159, 255) 0%, rgba(119,219,254,1) 100%);
     .greyText{
       color: $grey-text-color;
+
     }
   }
 
+  .news {
+    @include default-border-white();
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 600px;
+  }
 
   .weatherInfo {
     display: grid;
@@ -66,8 +74,11 @@ main {
 
   .card {
     margin: 0px 10px;
-    border-radius: 10px;
     padding: 10px 20px;
-    border: 1px solid #000;
+    @include default-border-white();
   }
+}
+
+ul {
+  margin: 20px 50px;
 }

@@ -39,6 +39,15 @@ main .current h1, main .current h2, main .current h3, main .current h4, main .cu
 main .current .greyText {
   color: #c9c9c9;
 }
+main .news {
+  border-radius: 20px;
+  border: 3px solid #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 600px;
+}
 main .weatherInfo {
   display: grid;
   grid-template-columns: 50% 50%;
@@ -56,9 +65,13 @@ main .lineChart {
 }
 .cards .card {
   margin: 0px 10px;
-  border-radius: 10px;
   padding: 10px 20px;
-  border: 1px solid #000;
+  border-radius: 20px;
+  border: 3px solid #ffffff;
+}
+
+ul {
+  margin: 20px 50px;
 }
 
 /*# sourceMappingURL=globals.css.map */
