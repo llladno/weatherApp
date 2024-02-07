@@ -26,13 +26,19 @@ const BarChart: React.FC<BarChartProps> = ({ data }:any) => {
             y: {
                 beginAtZero: true,
                 ticks: {
-                    color: 'white', // Устанавливаем белый цвет для значений
+                    color: '#9e61e8', // Устанавливаем белый цвет для значений
+                },
+                grid: {
+                    display: false,
                 },
             },
             x: {
                 beginAtZero: true,
+                grid: {
+                    display: false,
+                },
                 ticks: {
-                    color: 'white', // Устанавливаем белый цвет для значений
+                    color: '#9e61e8', // Устанавливаем белый цвет для значений
                 },
             },
         },

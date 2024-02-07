@@ -5,41 +5,81 @@
   padding: 0;
 }
 
+a{
+  color: #ffffff;
+  text-decoration: none;
+}
+
 body{
-  background: #5ea6ef;
+  background: #edd8f1;
 }
 
 .flex{
   display: flex;
   align-items: center;
+  justify-content: center;
 }
+
+.bg {
+  width: 100%;
+}
+
 
 main {
   display: grid;
   justify-content: space-between;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
   justify-items: center;
-  height: 100vh;
+  margin: 50px 100px;
+  height: 80vh;
   align-items: center;
+
+  border-radius: 20px;
+  background: rgb(255, 255, 255);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+
+  .currentLine{
+    width: 100%;
+    grid-row: 1/2;
+    grid-column-start: 2;
+    height: 100%;
+    div {
+      width: 100%;
+    }
+  }
 
   .current {
     overflow: hidden;
     display: grid;
-    grid-template-rows: 5% 15% 10% 35% 35%;
+    grid-template-rows: 5% 95%;
     align-items: center;
     justify-items: center;
-    padding: 10px;
-    width: 400px;
-    height: 600px;
-    @include default-border-white();
+    background: #ffffff;
+    height: 100%;
 
-
-
-    h1,h2,h3,h4,h5,h6 {
-      color: white;
+    div {
+      width: 90%;
     }
 
-    background: linear-gradient(45deg, rgb(0, 159, 255) 0%, rgba(119,219,254,1) 100%);
+    .currentMain {
+      text-align: center;
+      display: grid;
+      justify-items: center;
+      align-items: center;
+      height: 90%;
+      padding: 10px 0;
+      background: linear-gradient(135deg, #e862e5 0%, #5064f1 100%);
+      border-radius: 20px;
+      color: white;
+
+      .greyText{
+        color: #ececec;
+      }
+    }
+
+
     .greyText{
       color: $grey-text-color;
 
@@ -47,21 +87,27 @@ main {
   }
 
   .news {
-    @include default-border-white();
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 400px;
-    height: 600px;
+    grid-row-start: 1;
+    grid-row-end: -1;
   }
 
   .weatherInfo {
     display: grid;
     grid-template-columns: 50% 50%;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
     row-gap: 20px;
     justify-items: center;
+    align-items: center;
     width: 100%;
-    color: white;
+    color: #ffffff;
+    height: 60%;
+    border-radius: 20px;
   }
 
   .lineChart{
@@ -71,14 +117,46 @@ main {
 
 .cards {
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+border-radius: 20px;
+  background: rgba(245, 95, 250, 0.29);
+  backdrop-filter: blur(40px);
+
 
   .card {
     margin: 0px 10px;
     padding: 10px 20px;
-    @include default-border-white();
   }
+}
+
+.cardsBG{
+  width: 90%;
+  border-radius: 20px;
+  background-image: url("./assets/img/8a9f9f3686164f448731f716d9dcba57.jpg");
+  grid-row-start: 2;
+  overflow: hidden;
+
+}
+.cardPlace {
+color: white;
+  border-radius: 20px;
+  display: grid;
+  //grid-template-rows: 50px 200px auto;
+  justify-items: center;
+  backdrop-filter: blur(10px);
+
 }
 
 ul {
   margin: 20px 50px;
+}
+
+
+.lineCard {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }

@@ -14,7 +14,7 @@ const Page = () => {
                 <li>Новые иконки</li>
                 <li>Перевод</li>
             </ul>
-            <Link href='/'><button>Retirn</button></Link>
+            <Link href='/'><button>Return</button></Link>
         </div>
     );
 };
