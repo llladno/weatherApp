@@ -12,9 +12,6 @@ const Cards = ({data}: any) => {
         return t.date.slice(-2)
     })
 
-    console.log(temps)
-    console.log(times)
-
     let now = +data.current.last_updated.slice(11, 13)
     const chartData: any = {
         labels: times,
@@ -33,8 +30,6 @@ const Cards = ({data}: any) => {
     return (
         <div className='cardsBG'>
             <div className='cardPlace bg'>
-                <h2>Погода на 3 дня</h2>
-
                 <div className='cards'>
                     <Link href={`/day/0`}>
                         <DayCard data={data.forecast.forecastday[0]}></DayCard>

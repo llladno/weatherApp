@@ -1,4 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+.popup-window {
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.63);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+.popup-window .popup-form {
+  background: white;
+  border-radius: 20px;
+  width: 500px;
+  height: 400px;
+}
+
 * {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   margin: 0;
   padding: 0;
 }
@@ -22,12 +43,60 @@ body {
   width: 100%;
 }
 
+.current-background {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  background: radial-gradient(rgb(188, 188, 188), rgb(204, 209, 217)), url(https://grainy-gradients.vercel.app/noise.svg);
+  filter: contrast(170%);
+}
+.current-background .current-background_circle {
+  position: relative;
+  left: 40%;
+  top: 25%;
+  width: 370px;
+  height: 370px;
+  border-radius: 50%;
+  animation-name: current-background-animation;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  background: radial-gradient(rgba(112, 142, 243, 0.58), rgba(114, 114, 114, 0.59)), url(https://grainy-gradients.vercel.app/noise.svg);
+  transition: background 0.5s ease-in-out;
+}
+.current-background .current-background_circle:hover {
+  background: radial-gradient(rgba(243, 112, 191, 0.7), rgba(114, 114, 114, 0.59)), url(https://grainy-gradients.vercel.app/noise.svg);
+}
+
+@keyframes current-background-animation {
+  0% {
+    border-radius: 50%;
+  }
+  25% {
+    border-radius: 14% 86% 32% 68%/62% 73% 27% 38%;
+  }
+  75% {
+    border-radius: 63% 37% 46% 54%/62% 19% 81% 38%;
+  }
+  100% {
+    border-radius: 50%;
+  }
+}
+@keyframes change-background-color {
+  0% {
+    background: radial-gradient(rgba(112, 142, 243, 0.58), rgba(114, 114, 114, 0.59)), url(https://grainy-gradients.vercel.app/noise.svg);
+  }
+  50% {
+    background: radial-gradient(rgba(243, 112, 191, 0.7), rgba(114, 114, 114, 0.59)), url(https://grainy-gradients.vercel.app/noise.svg);
+  }
+  100% {
+    background: radial-gradient(rgba(112, 142, 243, 0.58), rgba(114, 114, 114, 0.59)), url(https://grainy-gradients.vercel.app/noise.svg);
+  }
+}
 main {
-  display: grid;
-  justify-content: space-between;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
-  justify-items: center;
   margin: 50px 100px;
   height: 80vh;
   align-items: center;
@@ -35,6 +104,12 @@ main {
   background: rgb(255, 255, 255);
   backdrop-filter: blur(10px);
   overflow: hidden;
+}
+main .menu-buttons {
+  display: grid;
+  opacity: 0;
+  width: 100%;
+  transition: ease-in-out 0.4s;
 }
 main .currentLine {
   width: 100%;
@@ -45,31 +120,57 @@ main .currentLine {
 main .currentLine div {
   width: 100%;
 }
-main .current {
-  overflow: hidden;
+main .main-display {
   display: grid;
-  grid-template-rows: 5% 95%;
-  align-items: center;
+  justify-content: center;
   justify-items: center;
-  background: #ffffff;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  transition: ease-in-out 0.4s;
+  width: 100%;
   height: 100%;
 }
-main .current div {
-  width: 90%;
+main .main-display .menu-bar {
+  width: 100%;
+  transition: ease-in-out 0.4s;
+}
+main .current {
+  position: relative;
+  overflow: hidden;
+  z-index: 3;
+  display: grid;
+  background: rgba(197, 197, 197, 0.25);
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(40px);
+  grid-template-columns: 50px auto;
+  transition: ease-in-out 0.4s;
 }
 main .current .currentMain {
+  position: relative;
+  z-index: 3;
   text-align: center;
   display: grid;
   justify-items: center;
   align-items: center;
   height: 90%;
   padding: 10px 0;
-  background: linear-gradient(135deg, #e862e5 0%, #5064f1 100%);
   border-radius: 20px;
-  color: white;
+  color: #313031;
+}
+main .current .currentMain * {
+  color: #313031;
+}
+main .current .currentMain h1 {
+  font-size: 60px;
+}
+main .current .currentMain h2 {
+  font-size: 100px;
+}
+main .current .currentMain p {
+  font-size: 20px;
 }
 main .current .currentMain .greyText {
-  color: #ececec;
+  color: #313031;
 }
 main .current .greyText {
   color: #3f3f3f;
@@ -84,50 +185,68 @@ main .news {
 main .weatherInfo {
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-row-start: 2;
-  grid-row-end: 4;
-  grid-column-start: 1;
-  grid-column-end: 3;
   row-gap: 20px;
   justify-items: center;
   align-items: center;
   width: 100%;
-  color: #ffffff;
   height: 60%;
   border-radius: 20px;
+}
+main .minmax-temp {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+main .minmax-temp p {
+  margin: 0 10px;
 }
 main .lineChart {
   width: 100%;
 }
 
 .cards {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 80%;
   border-radius: 20px;
-  background: rgba(245, 95, 250, 0.29);
-  backdrop-filter: blur(40px);
+  width: 100%;
+}
+.cards * {
+  color: #313031;
 }
 .cards .card {
-  margin: 0px 10px;
-  padding: 10px 20px;
+  display: flex;
+  justify-content: space-around;
+  margin: 30px 0;
+}
+.cards .card div {
+  display: flex;
+  width: 120px;
+  justify-content: space-between;
+}
+.cards .card div h4 {
+  color: #525252;
+}
+.cards .card img {
+  width: 30px;
 }
 
 .cardsBG {
-  width: 90%;
+  position: relative;
+  min-width: 600px;
+  z-index: 2;
   border-radius: 20px;
-  background-image: url("./assets/img/8a9f9f3686164f448731f716d9dcba57.jpg");
-  grid-row-start: 2;
   overflow: hidden;
+}
+@media (max-width: 950px) {
+  .cardsBG {
+    grid-column: 1/3;
+  }
 }
 
 .cardPlace {
-  color: white;
+  color: black;
   border-radius: 20px;
   display: grid;
   justify-items: center;
-  backdrop-filter: blur(10px);
+  height: 100%;
 }
 
 ul {
@@ -135,10 +254,21 @@ ul {
 }
 
 .lineCard {
-  height: 150px;
+  height: 250px;
   width: 100%;
   display: flex;
   align-items: center;
+}
+
+.menu-bar_button {
+  border: none;
+  background: none;
+  transition: ease-in-out 0.2s;
+  padding: 5px 10px;
+}
+
+.menu-bar_button:hover {
+  background: rgba(203, 203, 203, 0.56);
 }
 
 /*# sourceMappingURL=globals.css.map */

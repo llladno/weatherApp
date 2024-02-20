@@ -30,14 +30,17 @@ export default async function Home() {
 
     return (
         <main>
-            <CurrentWeather data={days3}></CurrentWeather>
-            <Cards data={days3}></Cards>
-            <div className='news bg'>
-                <div>
-                    <h1>News</h1>
-                    <h2>In develop</h2>
-                </div>
+            <div className='current-background'>
+                <div className='current-background_circle'></div>
             </div>
+            <CurrentWeather data={days3}></CurrentWeather>
+            {/*<Cards data={days3}></Cards>*/}
+            {/*<div className='news bg'>*/}
+            {/*    <div>*/}
+            {/*        <h1>News</h1>*/}
+            {/*        <h2>In develop</h2>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
         </main>
     );
 }
