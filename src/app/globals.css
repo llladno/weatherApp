@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Permanent+Marker&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 .popup-window {
   z-index: 10;
-  background: rgba(0, 0, 0, 0.63);
+  animation: 0.5s set-pop-up_background ease-in-out;
+  animation-fill-mode: forwards;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,8 +15,44 @@
   border-radius: 20px;
   width: 500px;
   height: 400px;
+  padding: 20px;
+  overflow-x: hidden;
+}
+.popup-window .popup-form .search {
+  display: flex;
+}
+.popup-window .popup-form input {
+  width: 100%;
+  padding: 10px 20px 5px 20px;
+  border: none;
+  border-bottom: 2px solid black;
+  border-radius: 20px 20px 0px 0px;
+}
+.popup-window .popup-form .location-city {
+  width: 100%;
+  height: 50px;
+  background: rgba(189, 189, 189, 0);
+  margin: 1px 0;
+  border: 2px solid rgba(182, 182, 182, 0.42);
+  transition: 0.2s ease-in-out;
+}
+.popup-window .popup-form .location-city:hover {
+  background: rgba(189, 189, 189, 0.32);
+}
+.popup-window .popup-form input:focus {
+  outline: none;
+  border-bottom: 2px solid black;
+  background: rgba(238, 238, 238, 0.73);
 }
 
+@keyframes set-pop-up_background {
+  0% {
+    background: rgba(0, 0, 0, 0);
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.63);
+  }
+}
 * {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
@@ -146,6 +183,7 @@ main .current {
   transition: ease-in-out 0.4s;
 }
 main .current .currentMain {
+  width: 100%;
   position: relative;
   z-index: 3;
   text-align: center;
@@ -213,8 +251,12 @@ main .lineChart {
 }
 .cards .card {
   display: flex;
+  padding: 20px 5px;
   justify-content: space-around;
-  margin: 30px 0;
+  border-radius: 20px;
+  margin: 10px 0;
+  background: rgba(215, 215, 215, 0);
+  transition: ease-in-out 0.2s;
 }
 .cards .card div {
   display: flex;
@@ -226,6 +268,9 @@ main .lineChart {
 }
 .cards .card img {
   width: 30px;
+}
+.cards .card:hover {
+  background: rgba(215, 215, 215, 0.4);
 }
 
 .cardsBG {
@@ -246,6 +291,7 @@ main .lineChart {
   border-radius: 20px;
   display: grid;
   justify-items: center;
+  align-items: center;
   height: 100%;
 }
 

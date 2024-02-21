@@ -24,8 +24,11 @@ const CurrentWeather = ({data}: any) => {
     const [value, setValue] = useState('');
     const [weather, setWeather] = useState(data)
     const handleChange = (new_location:string, ontrue:boolean) => {
+        console.log(new_location)
+        if (new_location) {
+            getWeather3(new_location)
+        }
         setPopup(ontrue)
-        getWeather3(new_location)
     };
 
     let temps = data.forecast.forecastday[0].hour.map((x: any) => {
@@ -73,11 +76,7 @@ const CurrentWeather = ({data}: any) => {
     }
 
     async function getWeather3(location:string) {
-        console.log(location)
-        // let res =
-        //     await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=1475df8ad82c4bc2bd7165248243101&q=${await location}&days=3&aqi=no&alerts=no`)
         let res = await axios.post('/api/weather/',{location: location})
-        console.log(res.data.message)
         setWeather(res.data.message)
     }
     return (
@@ -86,7 +85,7 @@ const CurrentWeather = ({data}: any) => {
                 <button className='menu-bar_button' onClick={menu_bar}>
                     <Image src='/menu-bar.png'
                            width={30}
-                           height={30}></Image>
+                           height={30} alt='image'></Image>
                 </button>
                 <div className='menu-buttons'>
                     <button onClick={() => setPopup(!popup)}>Выбрать город</button>
@@ -104,10 +103,10 @@ const CurrentWeather = ({data}: any) => {
                             <h2>{weather.current.temp_c} °</h2>
                         </div>
                     </div>
-                        <div className='minmax-temp'>
-                            <p>↑{weather.forecast.forecastday[0].day.maxtemp_c}</p>
-                            <p>↓ {weather.forecast.forecastday[0].day.mintemp_c}</p>
-                        </div>
+                    <div className='minmax-temp'>
+                        <p>↑{weather.forecast.forecastday[0].day.maxtemp_c}</p>
+                        <p>↓ {weather.forecast.forecastday[0].day.mintemp_c}</p>
+                    </div>
                     {/*<div className='currentLine'>*/}
                     {/*    <BarChart data={chartData}></BarChart>*/}
                     {/*</div>*/}
@@ -118,7 +117,7 @@ const CurrentWeather = ({data}: any) => {
                         <p>Осадки: {weather.current.precip_mm} мм</p>
                     </div>
                 </div>
-                    <Cards data={weather}></Cards>
+                <Cards data={weather}></Cards>
             </div>
             { popup ? <Popup onChange={handleChange}></Popup>
                 : null

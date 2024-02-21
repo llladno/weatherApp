@@ -1,10 +1,12 @@
 .popup-window{
   z-index: 10;
-  background: rgba(0, 0, 0, 0.63);
+  animation: 0.5s set-pop-up_background ease-in-out;
+  animation-fill-mode:forwards;
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
+
 
   width: 100%;
   height: 100%;
@@ -12,8 +14,52 @@
   .popup-form{
     background: white;
     border-radius: 20px;
-
     width: 500px;
     height: 400px;
+    padding: 20px;
+    overflow-x: hidden;
+
+    .search{
+      display: flex;
+    }
+
+
+    input{
+      width: 100%;
+      padding: 10px 20px 5px 20px;
+      border: none;
+      border-bottom: 2px solid black;
+      border-radius: 20px 20px 0px 0px;
+    };
+
+    .location-city{
+      width: 100%;
+      height: 50px;
+      background: rgba(189, 189, 189, 0);
+      margin: 1px 0;
+      border: 2px solid rgba(182, 182, 182, 0.42);
+      transition: 0.2s ease-in-out;
+    }
+
+    .location-city:hover{
+      background: rgba(189, 189, 189, 0.32);
+    }
+
+    input:focus{
+      outline: none;
+      border-bottom: 2px solid black;
+      background: rgba(238, 238, 238, 0.73);
+    };
   }
+}
+
+@keyframes set-pop-up_background {
+  0% {
+    background: rgba(0, 0, 0, 0);
+  }
+
+  100%{
+    background: rgba(0, 0, 0, 0.63);
+  }
+
 }

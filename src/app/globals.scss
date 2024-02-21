@@ -159,6 +159,7 @@ main {
 
 
     .currentMain {
+      width: 100%;
       position: relative;
       z-index: 3;
       text-align: center;
@@ -238,8 +239,12 @@ width: 100%;
 
   .card {
     display: flex;
+    padding: 20px 5px;
     justify-content: space-around;
-    margin: 30px 0;
+    border-radius: 20px;
+    margin: 10px 0;
+    background: rgba(215, 215, 215, 0);
+    transition: ease-in-out 0.2s;
 
     div {
       display: flex;
@@ -254,6 +259,10 @@ width: 100%;
     img{
       width: 30px;
     }
+  }
+
+  .card:hover{
+    background: rgba(215, 215, 215, 0.40);
   }
 }
 
@@ -273,6 +282,7 @@ width: 100%;
   border-radius: 20px;
   display: grid;
   justify-items: center;
+  align-items: center;
   height: 100%;
 }
 
