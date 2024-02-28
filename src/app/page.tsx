@@ -18,8 +18,9 @@ async function getWeather3() {
 }
 
 export async function getLocation() {
-    const res = await axios.get("http://ip-api.com/json");
-    return `${res.data.country} ${res.data.city}`
+    // const res = await axios.get("http://ip-api.com/json");
+    // return `${res.data.country} ${res.data.city}`
+    return `Russia St Petersburg`
 }
 
 export default async function Home() {
@@ -29,18 +30,6 @@ export default async function Home() {
 
 
     return (
-        <main>
-            <div className='current-background'>
-                <div className='current-background_circle'></div>
-            </div>
             <CurrentWeather data={days3}></CurrentWeather>
-            {/*<Cards data={days3}></Cards>*/}
-            {/*<div className='news bg'>*/}
-            {/*    <div>*/}
-            {/*        <h1>News</h1>*/}
-            {/*        <h2>In develop</h2>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-        </main>
     );
 }

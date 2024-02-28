@@ -133,31 +133,39 @@ body {
     background: radial-gradient(rgba(112, 142, 243, 0.58), rgba(114, 114, 114, 0.59)), url(https://grainy-gradients.vercel.app/noise.svg);
   }
 }
-main {
-  margin: 50px 100px;
-  height: 80vh;
+body {
+  height: 100vh;
   align-items: center;
   border-radius: 20px;
   background: rgb(255, 255, 255);
   backdrop-filter: blur(10px);
-  overflow: hidden;
+  overflow-x: hidden;
 }
-main .menu-buttons {
+body .menu-buttons {
   display: grid;
   opacity: 0;
   width: 100%;
   transition: ease-in-out 0.4s;
 }
-main .currentLine {
+body .menu-buttons button {
+  background: none;
+  border: 1px solid rgba(224, 224, 224, 0.79);
+  height: 60px;
+  margin: 5px 0;
+}
+body .menu-buttons button:hover {
+  background: rgba(224, 224, 224, 0.79);
+}
+body .currentLine {
   width: 100%;
   grid-row: 1/2;
   grid-column-start: 2;
   height: 100%;
 }
-main .currentLine div {
+body .currentLine div {
   width: 100%;
 }
-main .main-display {
+body .main-display {
   display: grid;
   justify-content: center;
   justify-items: center;
@@ -166,11 +174,12 @@ main .main-display {
   width: 100%;
   height: 100%;
 }
-main .main-display .menu-bar {
+body .main-display .menu-bar {
   width: 100%;
   transition: ease-in-out 0.4s;
+  border-right: 1px solid #707070;
 }
-main .current {
+body .current {
   position: relative;
   overflow: hidden;
   z-index: 3;
@@ -182,7 +191,7 @@ main .current {
   grid-template-columns: 50px auto;
   transition: ease-in-out 0.4s;
 }
-main .current .currentMain {
+body .current .currentMain {
   width: 100%;
   position: relative;
   z-index: 3;
@@ -195,32 +204,32 @@ main .current .currentMain {
   border-radius: 20px;
   color: #313031;
 }
-main .current .currentMain * {
+body .current .currentMain * {
   color: #313031;
 }
-main .current .currentMain h1 {
+body .current .currentMain h1 {
   font-size: 60px;
 }
-main .current .currentMain h2 {
+body .current .currentMain h2 {
   font-size: 100px;
 }
-main .current .currentMain p {
+body .current .currentMain p {
   font-size: 20px;
 }
-main .current .currentMain .greyText {
+body .current .currentMain .greyText {
   color: #313031;
 }
-main .current .greyText {
+body .current .greyText {
   color: #3f3f3f;
 }
-main .news {
+body .news {
   display: flex;
   justify-content: center;
   align-items: center;
   grid-row-start: 1;
   grid-row-end: -1;
 }
-main .weatherInfo {
+body .weatherInfo {
   display: grid;
   grid-template-columns: 50% 50%;
   row-gap: 20px;
@@ -230,15 +239,15 @@ main .weatherInfo {
   height: 60%;
   border-radius: 20px;
 }
-main .minmax-temp {
+body .minmax-temp {
   display: flex;
   width: 100%;
   justify-content: center;
 }
-main .minmax-temp p {
+body .minmax-temp p {
   margin: 0 10px;
 }
-main .lineChart {
+body .lineChart {
   width: 100%;
 }
 
@@ -315,6 +324,14 @@ ul {
 
 .menu-bar_button:hover {
   background: rgba(203, 203, 203, 0.56);
+}
+
+.loading {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=globals.css.map */

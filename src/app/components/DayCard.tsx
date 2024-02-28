@@ -11,7 +11,6 @@ const DayCard = ({data}:any) => {
     return (
         <div className='card'>
             <h2>{day}</h2>
-            {/*<h6>{dateDay} {month}</h6>*/}
                 <img src={data.day.condition.icon}/>
             <div>
                 <h3>{weatherDay.maxtemp_c > 0 ? `+ ` + weatherDay.maxtemp_c : weatherDay.maxtemp_c}</h3>

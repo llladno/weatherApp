@@ -3,7 +3,7 @@ import BarChart from "@/app/components/BarChart";
 import Link from "next/link";
 import DayCard from "@/app/components/DayCard";
 
-const Cards = ({data}: any) => {
+const Cards = ({data, location}: any) => {
     let temps = data.forecast.forecastday.map((x: any) => {
         return x.day.avgtemp_c
     })
@@ -26,12 +26,15 @@ const Cards = ({data}: any) => {
         ],
     };
 
+    console.log(location)
 
     return (
         <div className='cardsBG'>
             <div className='cardPlace bg'>
                 <div className='cards'>
-                    <Link href={`/day/0`}>
+                    <Link href={{pathname: `/day/0`,
+                    query: {location: location},
+                        }}>
                         <DayCard data={data.forecast.forecastday[0]}></DayCard>
                     </Link>
                     <Link href={`/day/1`}>

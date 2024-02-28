@@ -1,0 +1,84 @@
+* {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  color: #313031;
+}
+
+body {
+  height: 100vh;
+  align-items: center;
+  border-radius: 20px;
+  background: rgb(255, 255, 255);
+  overflow-x: hidden;
+}
+body .day-body {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  position: relative;
+  background: rgba(197, 197, 197, 0.25);
+  width: 100%;
+  backdrop-filter: blur(40px);
+  transition: ease-in-out 0.4s;
+  z-index: 10;
+}
+body .day-body .greyText {
+  color: #313031;
+}
+body .day-body .center {
+  display: grid;
+  justify-items: center;
+}
+body .day-body .day-info {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+}
+body .day-body .day-info .more-info {
+  display: grid;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 33.3% 33.3% auto;
+  grid-template-rows: 80px 80px;
+}
+body .day-body .day-info .lineChart {
+  width: 420px;
+}
+body .day-body .day-info h1 {
+  font-size: 60px;
+}
+body .day-body .day-info h2 {
+  font-size: 100px;
+}
+body .day-body .day-info p {
+  font-size: 20px;
+}
+
+.news-cards {
+  height: 100%;
+  overflow-y: scroll;
+}
+.news-cards .news-card {
+  margin: 20px 1px;
+}
+.news-cards .news-card h1 {
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+.news-cards .news-card h2 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 840px) {
+  .day-body {
+    height: auto !important;
+  }
+}
+
+/*# sourceMappingURL=date.page.css.map */

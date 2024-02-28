@@ -10,8 +10,9 @@ const Popup = ({onChange}: any) => {
     async function send() {
         let result = await axios.get('https://api.hh.ru/areas?locale=EN')
         let newArr: any = []
-        console.log(result)
         let main = ["Moscow", "Saint Petersburg"]
+
+        setLoading(true)
         main.forEach((x)=>{
             if (x.toLowerCase().includes(string)) newArr.push(x)
         })
@@ -21,23 +22,20 @@ const Popup = ({onChange}: any) => {
             })
         })
         setData(newArr.sort((a:any, b:any) => a.length - b.length))
+        setLoading(false)
     }
 
 
     function test() {
         let increment = 0
-        console.log(increment)
         let timer = setTimeout(() => {
             increment++
-            console.log(new Date().toTimeString())
             if (increment > 3) clearInterval(timer)
         }, 1000)
 
     }
 
     function setLocation(event:any){
-        console.log(event.target.textContent)
-
         if (event.target.textContent === 'send') onChange('', false)
         else onChange(event.target.textContent, false)
     }
@@ -52,9 +50,9 @@ const Popup = ({onChange}: any) => {
                     <button onClick={send}>send</button>
                 </div>
                 <div>
-                    {data ? data.map((x, index) => {
+                    {data.length ? data.map((x, index) => {
                         return <button className='location-city' onClick={e => setLocation(e)} key={index}>{x}</button>
-                    }) : <div>loading</div>}
+                    }) : <div></div>}
                 </div>
             </div>
         </div>

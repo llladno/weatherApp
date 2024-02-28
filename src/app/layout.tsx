@@ -15,11 +15,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+    if (typeof window !== 'undefined') {
+        console.log(localStorage.getItem('theme'))
+    }
   return (
     <html lang="en">
       <body className={inter.className}>
-      <header><h4>Develop progress: 50% <Link href='/develop'><button>More info</button></Link></h4>
-      </header>
+      <div className='current-background'>
+        <div className='current-background_circle'></div>
+      </div>
       {children}</body>
     </html>
   );
