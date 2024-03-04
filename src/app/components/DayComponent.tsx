@@ -1,20 +1,10 @@
 "use client"
 import axios from "axios";
-import {getLocation} from "@/app/page";
-import {getDay, getMonth} from "@/app/services/serviceDay";
 
 import BarChart from "@/app/components/BarChart";
 import Link from "next/link";
 import React, {useState} from "react";
-import {set} from "immutable";
-import {log} from "util";
 import News from "@/app/components/news/News";
-
-async function getWeather3() {
-    let res =
-        await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=1475df8ad82c4bc2bd7165248243101&q=${await getLocation()}&days=3&aqi=no&alerts=no`)
-    return res.data
-}
 
 async function getWeather2(params: any) {
     let res = await axios.post('/api/weather/', {location: params})

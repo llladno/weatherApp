@@ -26,8 +26,8 @@ const News = () => {
         <div className='news-cards'>
             {!loading ? <div>
                 <h1>Последние новости</h1>
-                {data.articles.map((x:any)=>{
-                    return (<div className='news-card'>
+                {data.articles.map((x:any, index:number)=>{
+                    return (<div className='news-card' key={index}>
                         <h1>{x.title === '[Removed]' ? null : x.title}</h1>
                         <h2>{x.author === '[Removed]' ? null : x.author}</h2>
                         <p>{x.description === '[Removed]' ? null : x.description}</p>

@@ -4,7 +4,7 @@ import axios from "axios";
 const Popup = ({onChange}: any) => {
 
     const [string, setString] = useState('')
-    const [data, setData] = useState([])
+    const [data, setData] = useState<any>([])
     const [loading, setLoading] = useState(false)
 
     async function send() {
@@ -50,7 +50,7 @@ const Popup = ({onChange}: any) => {
                     <button onClick={send}>send</button>
                 </div>
                 <div>
-                    {data.length ? data.map((x, index) => {
+                    {data.length ? data.map((x:any, index:number) => {
                         return <button className='location-city' onClick={e => setLocation(e)} key={index}>{x}</button>
                     }) : <div></div>}
                 </div>

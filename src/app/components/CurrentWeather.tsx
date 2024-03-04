@@ -21,7 +21,8 @@ const CurrentWeather = ({data}: any) => {
 
 
     useEffect(() => {
-        getWeather3(localStorage.getItem("location"))
+        let local = localStorage.getItem("location") || ''
+        getWeather3(local)
     }, [])
 
     const handleChange = (new_location: string, ontrue: boolean) => {
