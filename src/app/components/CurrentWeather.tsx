@@ -21,7 +21,7 @@ const CurrentWeather = ({data}: any) => {
 
 
     useEffect(() => {
-        let local = localStorage.getItem("location") || ''
+        let local = localStorage.getItem("location") || 'Moscow'
         getWeather3(local)
     }, [])
 

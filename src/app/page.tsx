@@ -9,7 +9,7 @@ import CurrentWeather from "@/app/components/CurrentWeather";
 
 
 async function getWeather3() {
-    let location:any = `Russia St Petersburg`
+    let location:any = `Moscow`
     let res =
         await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=1475df8ad82c4bc2bd7165248243101&q=${location}&days=3&aqi=no&alerts=no`)
     return res.data
